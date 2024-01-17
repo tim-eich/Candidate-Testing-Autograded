@@ -1,10 +1,11 @@
+const { run } = require('jest');
 const input = require('readline-sync');
 
 // TODO 2: modify your quiz app to ask 5 questions //
 
 // TODO 1.1a: Define candidateName // 
 let candidateName = "";
-//console.log(typeof(candidateName));
+
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
 let question = "Who was the first American woman in space? ";
 let correctAnswer = "Sally Ride";
@@ -20,7 +21,6 @@ let candidateAnswers = [];
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
   candidateName = input.question("What is your name? ");
-  return candidateName;
 }
 
 function askQuestion(questions) {
@@ -42,11 +42,16 @@ function gradeQuiz(candidateAnswers) {
     if (isCorrect === "Correct!") {
       numCorrect += 1;
     }
+    console.log(numCorrect);
   }
 
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
+  let grade = numCorrect / questions.length * 100;  //TODO 3.2 use this variable to calculate the candidates score.
+  if (grade >= 80) {
+    console.log(`Congratulations ${candidateName}! You have passed the quiz with a score of ${grade}`);
+  } else {
+    console.log(`Sorry ${candidateName}, but your grade of ${grade} is below the threshold to pass.`);
+  }
 
   return grade;
 }
@@ -57,7 +62,7 @@ function gradeQuiz(candidateAnswers) {
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
-   console.log();
+   console.log(`Hello, ${candidateName}`);
   askQuestion();
   gradeQuiz(this.candidateAnswers);
 }
