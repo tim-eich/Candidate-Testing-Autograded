@@ -32,11 +32,16 @@ function askQuestion(questions) {
 
 function gradeQuiz(candidateAnswers) {
 
-  // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-  if (candidateAnswer === correctAnswer) {
-    console.log("You are correct!");
-  } else {
-    console.log("I'm sorry, that is incorrect.");
+  // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly //
+  let numCorrect = 0; 
+  for (const answer in candidateAnswers) {
+    let userAnswer = candidateAnswers[answer];
+    let correctAnswer = correctAnswers[answer];
+    const isCorrect = userAnswer.toLowerCase() === correctAnswer.toLowerCase() ? "Correct!" : "Incorrect!";
+    console.log(`You answered ${userAnswer}, and the correct answer is ${correctAnswer}. You are ${isCorrect}`);
+    if (isCorrect === "Correct!") {
+      numCorrect += 1;
+    }
   }
 
 
@@ -46,8 +51,8 @@ function gradeQuiz(candidateAnswers) {
   return grade;
 }
 
-askQuestion(questions);
-console.log(candidateAnswers);
+// askQuestion(questions);
+// console.log(candidateAnswers);
 
 function runProgram() {
   askForName();
