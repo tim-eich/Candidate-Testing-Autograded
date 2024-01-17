@@ -38,19 +38,22 @@ function gradeQuiz(candidateAnswers) {
     let userAnswer = candidateAnswers[answer];
     let correctAnswer = correctAnswers[answer];
     const isCorrect = userAnswer.toLowerCase() === correctAnswer.toLowerCase() ? "Correct!" : "Incorrect!";
-    console.log(`You answered ${userAnswer}, and the correct answer is ${correctAnswer}. You are ${isCorrect}`);
+    console.log(`${Number(answer) + 1}) ${questions[answer]}
+    Your Answer: ${userAnswer}
+    Correct Answer: ${correctAnswer}`);
     if (isCorrect === "Correct!") {
       numCorrect += 1;
     }
-    console.log(numCorrect);
+    // console.log(numCorrect);
   }
 
+// `You answered ${userAnswer}, and the correct answer is ${correctAnswer}. You are ${isCorrect}`
 
   let grade = numCorrect / questions.length * 100;  //TODO 3.2 use this variable to calculate the candidates score.
   if (grade >= 80) {
-    console.log(`Congratulations ${candidateName}! You have passed the quiz with a score of ${grade}`);
+    console.log(`Congratulations ${candidateName}! You have passed the quiz with a score of ${grade}%`);
   } else {
-    console.log(`Sorry ${candidateName}, but your grade of ${grade} is below the threshold to pass.`);
+    console.log(`Sorry ${candidateName}, but your grade of ${grade}% is below the threshold to pass.`);
   }
 
   return grade;
