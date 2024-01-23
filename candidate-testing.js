@@ -59,16 +59,14 @@ function gradeQuiz(candidateAnswers) {
   return grade;
 }
 
-// askQuestion(questions);
-// console.log(candidateAnswers);
-
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
    console.log(`Hello, ${candidateName}`);
-  askQuestion();
+  askQuestion(questions);
   gradeQuiz(this.candidateAnswers);
 }
+
 
 // ----------- Don't write any code or change any code below this line ---------- //
 module.exports = {
