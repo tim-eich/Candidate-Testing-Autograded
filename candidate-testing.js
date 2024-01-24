@@ -23,7 +23,7 @@ function askForName() {
   candidateName = input.question("What is your name? ");
 }
 
-function askQuestion(questions) {
+function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
   for (const question in questions) {
     candidateAnswers[question] = input.question(questions[question]);
@@ -63,7 +63,7 @@ function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
    console.log(`Hello, ${candidateName}`);
-  askQuestion(questions);
+  askQuestion();
   gradeQuiz(this.candidateAnswers);
 }
 
