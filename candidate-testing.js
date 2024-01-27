@@ -33,11 +33,14 @@ function askQuestion() {
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly //
-  let numCorrect = 0; 
+  let numCorrect = 0;
+  let isCorrect = '';
+  let userAnswer = [];
+  let correctAnswer = []; 
   for (const answer in candidateAnswers) {
-    let userAnswer = candidateAnswers[answer];
-    let correctAnswer = correctAnswers[answer];
-    const isCorrect = userAnswer.toLowerCase() === correctAnswer.toLowerCase() ? "Correct!" : "Incorrect!";
+    userAnswer = candidateAnswers[answer];
+    correctAnswer = correctAnswers[answer];
+    isCorrect = userAnswer.toLowerCase() === correctAnswer.toLowerCase() ? "Correct!" : "Incorrect!";
     console.log(`${Number(answer) + 1}) ${questions[answer]}
     Your Answer: ${userAnswer}
     Correct Answer: ${correctAnswer}`);
